@@ -1,12 +1,14 @@
 import React, { useEffect } from "react";
 import Sidebar from "./components/Sidebar/Sidebar";
-import { Grid } from "@material-ui/core";
+import { Box } from "@material-ui/core";
 import {
     BrowserRouter as Router,
     Switch,
     Route,
     Redirect,
 } from "react-router-dom";
+import Counter from "./pages/Counter";
+import TemperatureConverter from "./pages/TemperatureConverter";
 
 const App = () => {
     useEffect(() => {
@@ -15,14 +17,24 @@ const App = () => {
 
     return (
         <Router>
-            <Grid container className="app">
-                <Grid item xs={12} sm={3} md={3} lg={3}>
+            <Box className="app">
+                <Box className="menu">
                     <Sidebar />
-                </Grid>
-                <Grid item xs={12} sm={9} md={9} lg={9}>
-                    <Switch></Switch>
-                </Grid>
-            </Grid>
+                </Box>
+                <Box className="content">
+                    <Switch>
+                        <Route exact path={"/counter"}>
+                            <Counter />
+                        </Route>
+                        <Route exact path={"/temperature-converter"}>
+                            <TemperatureConverter />
+                        </Route>
+                        <Route exact path={"/"}>
+                            <Redirect to="/counter" />
+                        </Route>
+                    </Switch>
+                </Box>
+            </Box>
         </Router>
     );
 };

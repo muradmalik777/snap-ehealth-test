@@ -1,0 +1,47 @@
+@import "../../assets/scss/variables.scss";
+
+.customButton {
+    min-height: 48px;
+    min-width: 100px;
+
+    span {
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: capitalize;
+    }
+
+    .loader {
+        color: $white;
+        height: 20px;
+        width: 20px;
+    }
+
+    &.disabledButton {
+        opacity: 0.6;
+    }
+
+    &.textDefault {
+        background: transparent;
+        min-width: 100px;
+    }
+
+    &.iconButton {
+        width: 40px;
+        min-width: 40px;
+        height: 40px;
+        min-height: 40px;
+        border-radius: 100%;
+        background: $primary;
+        color: $white;
+        padding: 0px;
+
+        &:hover {
+            background: $primary;
+        }
+    }
+
+    &.full {
+        width: 100%;
+    }
+}

@@ -1,8 +1,13 @@
 import { Box } from "@material-ui/core";
-import "./counter.scss";
+import "./Counter.scss";
+import Counter from "../../components/Counter";
 
-const Counter = () => {
-    return <Box className="counterPage"></Box>;
+const CounterPage = () => {
+    return (
+        <Box className="counterPage">
+            <Counter />
+        </Box>
+    );
 };
 
-export default Counter;
+export default CounterPage;

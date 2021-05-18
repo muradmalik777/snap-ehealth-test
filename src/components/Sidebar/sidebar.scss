@@ -1,0 +1,45 @@
+@import "../../assets/scss/variables.scss";
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: $dark-side !important;
+    min-width: 25%;
+    max-width: 33.3%;
+
+    .menu-item {
+        padding: 0.5rem 0;
+        width: fit-content;
+        a {
+            color: $white;
+            text-transform: capitalize;
+            font-size: 18px;
+            font-family: "Roboto-Regular" !important;
+            text-decoration: none;
+            margin: 0.3rem 0;
+            text-align: center;
+            &::before {
+                content: "";
+                position: absolute;
+                bottom: 10px;
+                left: 0;
+                width: 0%;
+                height: 2px;
+                background: $white;
+                transition: all 0.35s ease-in-out;
+            }
+            &:hover {
+                &::before {
+                    width: 100%;
+                }
+            }
+        }
+        .active {
+            &::before {
+                width: 100%;
+            }
+        }
+    }
+}

@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import Sidebar from "./components/Sidebar/Sidebar";
+import { Grid } from "@material-ui/core";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Redirect,
+} from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    useEffect(() => {
+        document.title = "Snap E-Health Coding Challenge";
+    });
+
+    return (
+        <Router>
+            <Grid container className="app">
+                <Grid item xs={12} sm={3} md={3} lg={3}>
+                    <Sidebar />
+                </Grid>
+                <Grid item xs={12} sm={9} md={9} lg={9}>
+                    <Switch></Switch>
+                </Grid>
+            </Grid>
+        </Router>
+    );
+};
 
 export default App;

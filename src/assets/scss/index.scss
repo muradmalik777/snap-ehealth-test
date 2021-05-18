@@ -1,0 +1,59 @@
+@import "./fonts.scss";
+@import "./variables.scss";
+@import "./utils.scss";
+
+* {
+    box-sizing: border-box !important;
+    letter-spacing: 1.5px;
+}
+
+body {
+    margin: 0;
+    font-family: "Roboto-Regular";
+    color: #333333;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: "Roboto-Regular";
+        letter-spacing: 2px;
+    }
+
+    p {
+        font-family: "Roboto-Light";
+        line-height: 1.5rem;
+        letter-spacing: 1.5px;
+    }
+}
+.box-title {
+    font-family: "Roboto-Regular";
+    font-size: 28px;
+    text-transform: capitalize;
+    margin: 0;
+    width: 100% !important;
+}
+.subtitle {
+    font-family: "Roboto-Regular";
+    font-size: 18px;
+    text-transform: capitalize;
+    margin: 0;
+    width: 100% !important;
+}
+.small-title {
+    font-family: "Roboto-Regular";
+    font-size: 14px;
+    text-transform: capitalize;
+    margin: 0;
+    width: 100% !important;
+}
+.chip {
+    background: $lightGrey;
+    color: $dark-side;
+    font-size: 14px;
+    padding: 0.2rem 0.5rem;
+    border-radius: 5px;
+    margin: 0.2rem 0.2rem 0.2rem 0;
+}

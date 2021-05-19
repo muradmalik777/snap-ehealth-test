@@ -6,9 +6,13 @@ const CustomButton = (props) => {
     const { loading, className, children, onClick, disabled, type, ...others } =
         props;
 
+    console.log(disabled);
+
     return (
         <Button
-            className={"customButton " + className}
+            className={`customButton  ${className} ${
+                disabled ? "disabledButton" : ""
+            }`}
             component="button"
             disabled={loading || disabled}
             onClick={onClick}

@@ -1,25 +1,19 @@
 import { Box, TextField, Typography } from "@material-ui/core";
 import { useEffect, useState } from "react";
 import "./TemperatureConverter.scss";
+import {
+    convertCelciusToFahrenheit,
+    convertFahrenheitToCelcius,
+} from "../../utils/helpers";
 
 const TemperatureConverter = () => {
     const [celcius, setCelcius] = useState("0");
     const [fahrenheit, setFahrenheit] = useState("0");
 
     useEffect(() => {
-        setCelcius(0);
-        setFahrenheit(convertCelciusToFahrenheit(0));
+        setCelcius("0");
+        setFahrenheit(convertCelciusToFahrenheit("0"));
     }, []);
-
-    const convertCelciusToFahrenheit = (val) => {
-        const converted = val * (9 / 5) + 32;
-        return converted % 1 !== 0 ? converted.toFixed(2) : converted;
-    };
-
-    const convertFahrenheitToCelcius = (val) => {
-        const converted = (val - 32) * (5 / 9);
-        return converted % 1 !== 0 ? converted.toFixed(2) : converted;
-    };
 
     const handleChange = (e) => {
         const value = e.target.value;

@@ -1,0 +1,44 @@
+@import "../../assets/scss/variables.scss";
+
+.temperatureConverter {
+    width: 400px;
+    min-height: 150px;
+    box-shadow: 0 2px 8px 0 $boxShadowColor;
+    border-radius: 4px;
+
+    .contentBox {
+        width: 100%;
+        min-height: 150px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 15px;
+        margin-top: 20px;
+
+        .inputBox {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+
+            .customInput {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            .customSelect {
+                width: 100%;
+                margin-bottom: 20px;
+
+                .label {
+                    min-width: 40px;
+                }
+            }
+        }
+
+        .actionBox {
+            margin-top: 20px;
+            width: 100%;
+        }
+    }
+}

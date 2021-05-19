@@ -4,7 +4,7 @@ import TemperatureConverter from "../../components/TemperatureConverter";
 
 const TemperatureConverterPage = () => {
     return (
-        <Box className="counterPage">
+        <Box className="temperatureConverterPage">
             <TemperatureConverter />
         </Box>
     );

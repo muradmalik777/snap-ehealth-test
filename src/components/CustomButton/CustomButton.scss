@@ -17,8 +17,18 @@
         width: 20px;
     }
 
+    &.submitButton {
+        background: $primary;
+        color: $white;
+
+        &:hover {
+            background: $primary;
+        }
+    }
+
     &.disabledButton {
         opacity: 0.6;
+        color: $white;
     }
 
     &.textDefault {

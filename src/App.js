@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import Counter from "./pages/Counter";
 import TemperatureConverter from "./pages/TemperatureConverter";
+import FlightBooker from "./pages/FlightBooker";
 
 const App = () => {
     useEffect(() => {
@@ -28,6 +29,9 @@ const App = () => {
                         </Route>
                         <Route exact path={"/temperature-converter"}>
                             <TemperatureConverter />
+                        </Route>
+                        <Route exact path={"/flight-booker"}>
+                            <FlightBooker />
                         </Route>
                         <Route exact path={"/"}>
                             <Redirect to="/counter" />

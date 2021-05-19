@@ -34,6 +34,7 @@ const Counter = () => {
                 <Box className="inputBox">
                     <TextField
                         variant="outlined"
+                        label="Count"
                         disabled={true}
                         value={count}
                         className="customInput"

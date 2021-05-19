@@ -80,4 +80,22 @@ body {
     > div {
         padding-right: 10px;
     }
+    svg {
+        color: black;
+    }
+}
+
+.customSelect {
+    height: 50px;
+    margin: 0;
+    width: 100%;
+
+    div {
+        height: 50px;
+    }
+}
+
+.error {
+    color: red;
+    font-size: 14px;
 }

@@ -14,14 +14,16 @@ import {
     KeyboardDatePicker,
 } from "@material-ui/pickers";
 import CustomButton from "../CustomButton/CustomButton";
+import SuccessAlert from "../SuccessAlert";
 
 const FlightBooker = () => {
     const [bookingType, setBookingType] = useState(0);
     const [departDate, setDepartDate] = useState(new Date());
-    const [returnDate, setReturnDate] = useState(
-        new Date().setDate(new Date().getDate() + 1)
-    );
+    const [returnDate, setReturnDate] = useState(new Date());
     const [errors, setErrors] = useState({});
+    const [alertData, setAlertData] = useState(null);
+
+    console.log(returnDate);
 
     const flightTypeMenu = [
         { label: "One-way Flight", value: 0 },
@@ -33,7 +35,6 @@ const FlightBooker = () => {
     };
 
     const handleDepartDateChange = (date) => {
-        console.log(typeof date);
         if (date.toString() === "Invalid Date") {
             updateErrors("departDateError", true);
             setDepartDate(date);
@@ -51,6 +52,19 @@ const FlightBooker = () => {
             setReturnDate(date);
             updateErrors("returnDateError", false);
         }
+    };
+
+    const showMessage = () => {
+        let title = "Congratulations";
+        let message = `You have booked a ${
+            flightTypeMenu[bookingType].label
+        } with Departure Date: ${departDate.toDateString()}`;
+
+        if (bookingType) {
+            message += `and Return Date: ${returnDate.toDateString()}`;
+        }
+
+        setAlertData({ title, message });
     };
 
     const updateErrors = (key, value) => {
@@ -82,12 +96,17 @@ const FlightBooker = () => {
 
     return (
         <Box
-            className="temperatureConverter"
+            className="flightBooker"
             display="flex"
             flexDirection="column"
             justifyContent="flex-start"
             alignItems="flex-start"
         >
+            <SuccessAlert
+                open={Boolean(alertData)}
+                onClose={() => setAlertData(null)}
+                data={alertData}
+            />
             <Box className="titleBox">
                 <Typography variant="h4">Flight Booker</Typography>
             </Box>
@@ -118,7 +137,7 @@ const FlightBooker = () => {
                             format="dd-MM-yyyy"
                             className="customInput"
                             margin="normal"
-                            id="return-date"
+                            id="departure-date"
                             label="Departure Date"
                             value={departDate}
                             onChange={handleDepartDateChange}
@@ -153,6 +172,7 @@ const FlightBooker = () => {
                             errors["invalidReturnDate"]
                         }
                         className="submitButton full"
+                        onClick={showMessage}
                     >
                         Book flight
                     </CustomButton>

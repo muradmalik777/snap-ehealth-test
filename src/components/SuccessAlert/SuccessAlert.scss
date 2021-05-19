@@ -1,0 +1,9 @@
+@import "../../assets/scss/variables.scss";
+
+.successAlert {
+    box-shadow: 0 2px 8px 0 $boxShadowColor;
+
+    h6 {
+        font-size: 14px;
+    }
+}

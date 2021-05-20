@@ -19,7 +19,8 @@ import SuccessAlert from "../SuccessAlert";
 const FlightBooker = () => {
     const [bookingType, setBookingType] = useState(0);
     const [departDate, setDepartDate] = useState(new Date());
-    const [returnDate, setReturnDate] = useState(new Date());
+    const initReturnDate = new Date().setDate(new Date().getDate() + 1);
+    const [returnDate, setReturnDate] = useState(new Date(initReturnDate));
     const [errors, setErrors] = useState({});
     const [alertData, setAlertData] = useState(null);
 
@@ -35,7 +36,7 @@ const FlightBooker = () => {
     };
 
     const handleDepartDateChange = (date) => {
-        if (date.toString() === "Invalid Date") {
+        if (date && date.toString() === "Invalid Date") {
             updateErrors("departDateError", true);
             setDepartDate(date);
         } else {
@@ -45,7 +46,7 @@ const FlightBooker = () => {
     };
 
     const handleReturnDateChange = (date) => {
-        if (date.toString() === "Invalid Date") {
+        if (date && date.toString() === "Invalid Date") {
             updateErrors("returnDateError", true);
             setReturnDate(date);
         } else {
@@ -75,7 +76,9 @@ const FlightBooker = () => {
 
     const validateDates = () => {
         if (
+            departDate &&
             departDate.toString() !== "Invalid Date" &&
+            returnDate &&
             returnDate.toString !== "Invalid Date" &&
             bookingType
         ) {
@@ -153,7 +156,6 @@ const FlightBooker = () => {
                             className="customInput"
                             value={returnDate}
                             onChange={handleReturnDateChange}
-                            error={errors["invalidReturnDate"]}
                         />
                     </MuiPickersUtilsProvider>
                     {errors["invalidReturnDate"] && (
@@ -167,6 +169,8 @@ const FlightBooker = () => {
                 <Box className="actionBox">
                     <CustomButton
                         disabled={
+                            !departDate ||
+                            !returnDate ||
                             errors["departDateError"] ||
                             errors["returnDateError"] ||
                             errors["invalidReturnDate"]

@@ -133,7 +133,7 @@ const Crud = () => {
                     <Box className="inputs">
                         <TextField
                             variant="outlined"
-                            label="First Name"
+                            label="Name"
                             value={firstName}
                             name="celcius"
                             className="customInput"
@@ -141,7 +141,7 @@ const Crud = () => {
                         />
                         <TextField
                             variant="outlined"
-                            label="Last Name"
+                            label="Surname"
                             value={lastName}
                             name="celcius"
                             className="customInput"

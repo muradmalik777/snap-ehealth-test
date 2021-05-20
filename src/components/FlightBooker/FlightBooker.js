@@ -24,8 +24,6 @@ const FlightBooker = () => {
     const [errors, setErrors] = useState({});
     const [alertData, setAlertData] = useState(null);
 
-    console.log(returnDate);
-
     const flightTypeMenu = [
         { label: "One-way Flight", value: 0 },
         { label: "Return Flight", value: 1 },

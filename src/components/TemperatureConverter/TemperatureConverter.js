@@ -9,6 +9,7 @@ import {
 const TemperatureConverter = () => {
     const [celcius, setCelcius] = useState("0");
     const [fahrenheit, setFahrenheit] = useState("0");
+    const [error, setError] = useState(false);
 
     useEffect(() => {
         setCelcius("0");
@@ -17,6 +18,7 @@ const TemperatureConverter = () => {
 
     const handleChange = (e) => {
         const value = e.target.value;
+        setError(() => (isNaN(value) ? true : false));
         let celciusValue = 0;
         let fahrenheitValue = 0;
         if (value) {
@@ -68,6 +70,11 @@ const TemperatureConverter = () => {
                         onChange={handleChange}
                     />
                 </Box>
+                {error && (
+                    <Typography variant="h6" className="error">
+                        Value added should be a number
+                    </Typography>
+                )}
             </Box>
         </Box>
     );

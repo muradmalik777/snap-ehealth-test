@@ -10,9 +10,9 @@
         width: 100%;
         min-height: 150px;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         align-items: center;
-        padding: 15px;
+        padding: 30px 15px;
 
         .inputBox {
             width: 100%;
@@ -24,6 +24,11 @@
             .customInput {
                 width: 45%;
             }
+        }
+
+        h6 {
+            font-size: 14px;
+            margin-top: 10px;
         }
     }
 }

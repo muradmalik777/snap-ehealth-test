@@ -1,29 +1,68 @@
 @import "../../assets/scss/variables.scss";
 
-.temperatureConverter {
-    width: 400px;
+.timer {
+    width: 500px;
     min-height: 150px;
     box-shadow: 0 2px 8px 0 $boxShadowColor;
     border-radius: 4px;
 
     .contentBox {
         width: 100%;
-        min-height: 150px;
+        min-height: 250px;
         display: flex;
-        flex-direction: row;
-        align-items: center;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
         padding: 15px;
 
-        .inputBox {
+        .gaugeBox {
             width: 100%;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
 
-            .customInput {
-                width: 45%;
+            h6 {
+                font-size: 16px;
+                width: 30%;
             }
+            .gauge {
+                width: 70%;
+
+                .holder {
+                    height: 20px;
+                    border-radius: 4px;
+                    background-color: #ddd;
+                }
+                .bar {
+                    background-color: $primary;
+                }
+            }
+        }
+
+        .timeBox {
+            width: 100%;
+
+            h6 {
+                font-size: 16px;
+                width: 30%;
+            }
+            .slider {
+                width: 70%;
+
+                .rail {
+                    height: 5px;
+                    border-radius: 4px;
+                }
+                .bar {
+                    height: 5px;
+                }
+
+                .thumb {
+                    height: 15px;
+                    width: 15px;
+                }
+            }
+        }
+
+        .submitButton {
+            margin-top: 20px;
         }
     }
 }

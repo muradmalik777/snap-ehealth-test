@@ -1,73 +1,84 @@
-import { Box, TextField, Typography } from "@material-ui/core";
+import { Box, Typography, LinearProgress, Slider } from "@material-ui/core";
 import { useEffect, useState } from "react";
 import "./Timer.scss";
-import {
-    convertCelciusToFahrenheit,
-    convertFahrenheitToCelcius,
-} from "../../utils/helpers";
+import CustomButton from "../CustomButton";
 
 const Timer = () => {
-    const [celcius, setCelcius] = useState("0");
-    const [fahrenheit, setFahrenheit] = useState("0");
+    const [time, setTime] = useState(5);
+    const [gauge, setGauge] = useState(0);
 
     useEffect(() => {
-        setCelcius("0");
-        setFahrenheit(convertCelciusToFahrenheit("0"));
-    }, []);
+        const fillGauge = setInterval(() => {
+            setGauge((prevValue) => (prevValue >= time ? time : prevValue + 1));
+        }, 500);
 
-    const handleChange = (e) => {
-        const value = e.target.value;
-        let celciusValue = 0;
-        let fahrenheitValue = 0;
-        if (value) {
-            if (e.target.name === "celcius") {
-                celciusValue = value;
-                fahrenheitValue = convertCelciusToFahrenheit(value);
-                setCelcius(celciusValue);
-                setFahrenheit(fahrenheitValue);
-            } else {
-                celciusValue = convertFahrenheitToCelcius(value);
-                fahrenheitValue = value;
-                setCelcius(celciusValue);
-                setFahrenheit(fahrenheitValue);
-            }
-        } else {
-            setCelcius(value);
-            setFahrenheit(value);
-        }
+        return () => {
+            clearInterval(fillGauge);
+        };
+    }, [time]);
+
+    const handleTimeChange = (e, newValue) => {
+        setTime(newValue);
+    };
+
+    const reset = () => {
+        setGauge(0);
+        setTime(5);
     };
 
     return (
         <Box
-            className="temperatureConverter"
+            className="timer"
             display="flex"
             flexDirection="column"
             justifyContent="flex-start"
             alignItems="flex-start"
         >
             <Box className="titleBox">
-                <Typography variant="h4">Temperature Converter</Typography>
+                <Typography variant="h4">Timer</Typography>
             </Box>
             <Box className="contentBox">
-                <Box className="inputBox">
-                    <TextField
-                        variant="outlined"
-                        label="Celcius"
-                        value={celcius}
-                        name="celcius"
-                        className="customInput"
-                        onChange={handleChange}
-                    />
-                    &#61;
-                    <TextField
-                        variant="outlined"
-                        label="Fahrenheit"
-                        value={fahrenheit}
-                        name="fahrenheit"
-                        className="customInput"
-                        onChange={handleChange}
-                    />
+                <Box
+                    className="gaugeBox"
+                    display="flex"
+                    flexDirection="row"
+                    justifyContent="space-between"
+                    alignItems="center"
+                >
+                    <Typography variant="h6">Elapsed Time:</Typography>
+                    <Box className="gauge">
+                        <LinearProgress
+                            variant="determinate"
+                            value={gauge}
+                            classes={{ determinate: "holder", bar: "bar" }}
+                        />
+                    </Box>
                 </Box>
+                <Typography variant="h6">{time} s</Typography>
+                <Box
+                    className="timeBox"
+                    display="flex"
+                    flexDirection="row"
+                    justifyContent="space-between"
+                    alignItems="center"
+                >
+                    <Typography variant="h6">Duration:</Typography>
+                    <Box className="slider">
+                        <Slider
+                            step={0.1}
+                            value={time}
+                            onChange={handleTimeChange}
+                            classes={{
+                                rail: "rail",
+                                track: "bar",
+                                thumb: "thumb",
+                            }}
+                        />
+                    </Box>
+                </Box>
+                <CustomButton className="submitButton full" onClick={reset}>
+                    Reset
+                </CustomButton>
             </Box>
         </Box>
     );

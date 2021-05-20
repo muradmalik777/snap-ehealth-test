@@ -7,7 +7,7 @@ import {
     Route,
     Redirect,
 } from "react-router-dom";
-import CounterPage from "./pages/Counter";
+import CounterPage from "./pages/CounterPage";
 import TemperatureConverterPage from "./pages/TemperatureConverter";
 import FlightBookerPage from "./pages/FlightBooker";
 import TimerPage from "./pages/Timer";

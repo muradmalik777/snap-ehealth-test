@@ -7,11 +7,11 @@ import {
     Route,
     Redirect,
 } from "react-router-dom";
-import Counter from "./pages/Counter";
-import TemperatureConverter from "./pages/TemperatureConverter";
-import FlightBooker from "./pages/FlightBooker";
-import Timer from "./pages/Timer";
-import Crud from "./pages/Crud";
+import CounterPage from "./pages/Counter";
+import TemperatureConverterPage from "./pages/TemperatureConverter";
+import FlightBookerPage from "./pages/FlightBooker";
+import TimerPage from "./pages/Timer";
+import CrudPage from "./pages/Crud";
 
 const App = () => {
     useEffect(() => {
@@ -27,19 +27,19 @@ const App = () => {
                 <Box className="content">
                     <Switch>
                         <Route exact path={"/counter"}>
-                            <Counter />
+                            <CounterPage />
                         </Route>
                         <Route exact path={"/temperature-converter"}>
-                            <TemperatureConverter />
+                            <TemperatureConverterPage />
                         </Route>
                         <Route exact path={"/flight-booker"}>
-                            <FlightBooker />
+                            <FlightBookerPage />
                         </Route>
                         <Route exact path={"/timer"}>
-                            <Timer />
+                            <TimerPage />
                         </Route>
                         <Route exact path={"/crud"}>
-                            <Crud />
+                            <CrudPage />
                         </Route>
                         <Route exact path={"/"}>
                             <Redirect to="/counter" />

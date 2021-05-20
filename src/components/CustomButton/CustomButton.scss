@@ -20,9 +20,30 @@
     &.submitButton {
         background: $primary;
         color: $white;
+        min-width: 120px;
 
         &:hover {
             background: $primary;
+        }
+    }
+
+    &.deleteButton {
+        background: $red;
+        color: $white;
+        min-width: 120px;
+
+        &:hover {
+            background: $red;
+        }
+    }
+
+    &.updateButton {
+        background: $primaryDark;
+        color: $white;
+        min-width: 120px;
+
+        &:hover {
+            background: $primaryDark;
         }
     }
 

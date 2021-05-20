@@ -11,6 +11,7 @@ import Counter from "./pages/Counter";
 import TemperatureConverter from "./pages/TemperatureConverter";
 import FlightBooker from "./pages/FlightBooker";
 import Timer from "./pages/Timer";
+import Crud from "./pages/Crud";
 
 const App = () => {
     useEffect(() => {
@@ -36,6 +37,9 @@ const App = () => {
                         </Route>
                         <Route exact path={"/timer"}>
                             <Timer />
+                        </Route>
+                        <Route exact path={"/crud"}>
+                            <Crud />
                         </Route>
                         <Route exact path={"/"}>
                             <Redirect to="/counter" />
